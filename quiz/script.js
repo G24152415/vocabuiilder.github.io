@@ -1,26 +1,28 @@
 // Arreglo de preguntas de gramática en español
 let preguntas = [
-    "Completa la siguiente oración: Ella ____ a la escuela todos los días.",
-    "Selecciona el verbo en pasado en la siguiente oración: Él ____ al mercado ayer.",
-    "Elige la opción que completa correctamente la frase: Mi hermana _____ un libro en la biblioteca.",
-    "¿Cuál es el sujeto de la oración? Juan y María fueron al cine.",
-    "Selecciona el adjetivo en la siguiente oración: El perro grande corre rápido.",
-    "¿Cuál es el complemento directo en la siguiente oración? Mamá compró una casa nueva.",
-    // Agrega más preguntas aquí según sea necesario
+    "¿Cuál de las siguientes palabras es un sustantivo?",
+    "¿Cuál de estas palabras es un adjetivo?",
+    "¿Cuál es el verbo en esta oración: 'María corre por el parque'?",
+    "¿Cuál de estas oraciones tiene un adjetivo?",
+    "¿Cuál de estas palabras es un antónimo (lo contrario de 'grande')?",
+    "¿Cuál de estas oraciones está en pretérito?",
+    "¿Cuál es un homófono de 'vaya'?",
+    "¿Cuál de estas frases usa correctamente la coma?"
 ];
 
 // Arreglo que guarda la opción correcta para cada pregunta
-let correcta = [0, 1, 2, 0, 0, 2 /*, Agrega más respuestas correctas aquí */];
+let correcta = [1, 0, 2, 0, 1, 0, 0, 2];
 
 // Arreglo que guarda las opciones para cada pregunta
 let opciones = [
-    ["va", "fue", "yendo"],
-    ["va", "fue", "va"],
-    ["está leyendo", "lee", "leyó"],
-    ["Juan y María", "cine", "fueron"],
-    ["perro", "corre", "rápido"],
-    ["Mamá", "casa", "nueva"],
-    // Agrega más opciones aquí según sea necesario
+    ["A) Saltar", "B) Gato", "C) Rápidamente"],
+    ["A) Azul", "B) Jugar", "C) Árbol"],
+    ["A) María", "B) Parque", "C) Corre"],
+    ["A) El perro es grande.", "B) Pedro juega al fútbol.", "C) La mesa es de madera."],
+    ["A) Enorme", "B) Pequeño", "C) Gigante"],
+    ["A) Ellos caminaron hasta la tienda.", "B) Nosotros caminamos ahora.", "C) Yo caminaré mañana."],
+    ["A) Baya", "B) Calla", "C) Raya"],
+    ["A) Comí una manzana, roja.", "B) Comí una manzana, y un plátano.", "C) Comí una manzana, plátano, y pera."]
 ];
 
 // Función para mezclar un array

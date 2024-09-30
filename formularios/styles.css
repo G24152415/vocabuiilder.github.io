@@ -98,6 +98,7 @@ html, body {
 
 .card {
     width: 100%; /* Ajusta el ancho al contenedor */
+    padding: 50px 0px;
     height: 180px;
     background: #ffffff; /* Fondo blanco para las tarjetas */
     border-radius: 15px; /* Bordes redondeados */

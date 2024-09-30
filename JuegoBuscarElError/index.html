@@ -4,36 +4,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>¡Busca el Error!</title>
+    <link rel="icon" href="imagen/logo-removebg-preview.png">
+
     <style>
         body {
-    font-family: 'Comic Sans MS', cursive, sans-serif;
-    background-image: url('../imagen/WhatsApp Image 2024-09-05 at 12.17.12 AM (3).jpeg');
-    background-size: cover; /* Asegura que la imagen cubra toda el área */
-    background-position: center; /* Centra la imagen */
-    background-repeat: no-repeat; /* Evita la repetición de la imagen */
-    color: #333;
-    text-align: center;
-    height: 100vh;
-    width: 100vw; /* Ajusta el ancho al viewport */
-    margin: 0;
-    padding: 0;
-    overflow: hidden; /* Evita el scroll si el contenido se desborda */
-}
-
-.container {
-    margin: 20px auto;
-    padding: 30px;
-    background: #fff;
-    border-radius: 15px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-    width: 80%;
-    max-width: 700px;
-    position: relative; /* Para posicionar el contenido sobre la imagen de fondo */
-    z-index: 1; /* Asegura que el contenedor esté sobre el fondo */
-}
-
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            background-image: url('../imagen/WhatsApp Image 2024-09-05 at 12.17.12 AM (3).jpeg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #333;
+            text-align: center;
+            height: 100vh;
+            width: 100vw;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+        .container {
+            margin: 20px auto;
+            padding: 30px;
+            background: #fff;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            width: 80%;
+            max-width: 700px;
+            z-index: 1;
+        }
         h1 {
-            color: #382b31;
+            color: #4a90e2;
             margin-bottom: 20px;
         }
         .instructions {
@@ -46,7 +45,7 @@
             margin-bottom: 20px;
             padding: 10px;
             background-color: #f8f8f8;
-            border: 2px dashed #121111;
+            border: 2px dashed #4a90e2;
             border-radius: 10px;
         }
         textarea {
@@ -54,13 +53,13 @@
             height: 120px;
             padding: 10px;
             border-radius: 10px;
-            border: 2px solid #191718;
+            border: 2px solid #4a90e2;
             font-size: 18px;
             margin-bottom: 20px;
             box-shadow: 0 4px 8px rgba(0,0,0,0.2);
         }
         .button {
-            background-color: #25101a;
+            background-color: #4a90e2;
             color: white;
             padding: 15px 25px;
             border: none;
@@ -70,7 +69,7 @@
             transition: background-color 0.3s;
         }
         .button:hover {
-            background-color: #4a4749;
+            background-color: #357abd;
         }
         .feedback {
             font-size: 22px;
@@ -79,6 +78,48 @@
         }
         .feedback.correct { color: #4CAF50; }
         .feedback.incorrect { color: #FF6347; }
+        .modal {
+            display: none;
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+        .modal-content {
+            background-color: #fff;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            width: 80%;
+            max-width: 500px;
+            text-align: center;
+        }
+        .modal-header {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #4a90e2;
+        }
+        .modal-body {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+        .modal-button {
+            background-color: #4a90e2;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 18px;
+        }
+        .modal-button:hover {
+            background-color: #357abd;
+        }
     </style>
 </head>
 <body>
@@ -91,25 +132,33 @@
         <textarea id="correction" placeholder="Escribe aquí la oración corregida"></textarea>
         <button class="button" onclick="checkCorrection()">Comprobar</button>
         <div id="feedback" class="feedback"></div>
-        <button class="button" onclick="loadQuestion()">Nueva Pregunta</button>
+    </div>
+
+    <!-- Modal for results -->
+    <div id="result-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">¡Resultados Finales!</div>
+            <div id="result-content" class="modal-body"></div>
+            <div>
+                <button class="modal-button" onclick="closeModal()">Cerrar</button>
+            </div>
+        </div>
     </div>
 
     <script>
         const questions = [
             { sentence: "El gato se duerme en la sillas.", correct: "El gato se duerme en la silla." },
             { sentence: "Los perro están en el parque.", correct: "Los perros están en el parque." },
-            { sentence: "Maria y Juan va al cine.", correct: "María y Juan van al cine." },
+            { sentence: "Maria y Juan va al cine.", correct: "Maria y Juan van al cine." },
             { sentence: "Nosotros comemos manzana y naranja.", correct: "Nosotros comemos manzanas y naranjas." }
         ];
 
         let currentQuestion;
-
-        function getRandomQuestion() {
-            return questions[Math.floor(Math.random() * questions.length)];
-        }
+        let totalCorrect = 0;
+        const totalQuestions = questions.length;
 
         function loadQuestion() {
-            currentQuestion = getRandomQuestion();
+            currentQuestion = questions[Math.floor(Math.random() * totalQuestions)];
             document.getElementById('sentence').textContent = currentQuestion.sentence;
             document.getElementById('correction').value = '';
             document.getElementById('feedback').textContent = '';
@@ -119,17 +168,34 @@
             const userCorrection = document.getElementById('correction').value.trim().toLowerCase();
             const correctAnswer = currentQuestion.correct.trim().toLowerCase();
             const feedback = document.getElementById('feedback');
-            
+
             if (userCorrection === correctAnswer) {
                 feedback.textContent = "¡Correcto! ¡Bien hecho!";
                 feedback.className = "feedback correct";
+                totalCorrect++;
+                if (totalCorrect === totalQuestions) {
+                    showResultModal(true);
+                } else {
+                    loadQuestion();
+                }
             } else {
                 feedback.textContent = "Incorrecto. Intenta de nuevo.";
                 feedback.className = "feedback incorrect";
             }
         }
 
-        // Cargar una nueva pregunta cuando se carga la página
+        function showResultModal(isWinner) {
+            const resultContent = isWinner ? "¡Felicidades! Has completado todas las oraciones correctamente." : "Juego terminado. Has fallado en algunas oraciones.";
+            document.getElementById('result-content').textContent = resultContent;
+            document.getElementById('result-modal').style.display = 'flex';
+        }
+
+        function closeModal() {
+            document.getElementById('result-modal').style.display = 'none';
+            totalCorrect = 0;
+            loadQuestion();
+        }
+
         window.onload = loadQuestion;
     </script>
 </body>

@@ -88,11 +88,12 @@ body {
 }
 
 .about-section h2 {
-    font-family: 'Bungee Spice', sans-serif;
+    font-family: "Coiny", system-ui;
+    font-style: normal;
     font-size: 2rem;
     margin-bottom: 20px;
     text-align: center;
-    color: #33519c;
+    color: #f3c127;
 }
 
 .team-container {
@@ -151,10 +152,12 @@ body {
 }
 
 .faq-section h2 {
-    font-family: 'Bungee Spice', sans-serif;
+    font-family: "Coiny", system-ui;
+    font-style: normal;
     font-size: 2rem;
     margin-bottom: 20px;
     text-align: center;
+    color: #f3c127;
 }
 
 .faq-container {

@@ -8,8 +8,24 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="icon" href="../imagen/logo-removebg-preview.png">
 </head>
 <body>
+    <header class="header">
+        <div class="logo">
+          <img src="../imagen/logo-removebg-preview.png" alt="logo de la pagina VOCABUILDER">
+          <p class="logo">VOCABUILDER</p>
+        </div>
+        <nav>
+          <ul class="nav-links">
+            <li><a href="../formularios/formularios.html">Formularios</a></li>
+            <li><a href="../index.html" target="_blank">Inicio</a></li>
+            <li><a href="../seccion_videos/Videos.html">Videos</a></li>
+          </ul>
+        </nav>
+        <a href="../SobreNosotros/sobrenosotros.html" class="btn"><button>Sobre Nosotros</button></a>
+      </header>
     <div class="swiper mySwiper">
         <div class="swiper-wrapper">
             <div class="swiper-slide">
@@ -85,8 +101,44 @@
             </div>
         </div>
     </div>
+ <!-- Footer -->
+ <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-logo">
+          <a href="#">Vocabuilder</a>
+        </div>
+        <div class="footer-links">
+          <ul>
+            <li><a href="#">vocabuilder03@gmail.com</a></li>
+            <li><a href="SobreNosotros/sobrenosotros.html">Sobre Nosotros</a></li>
+            <li><a href="https://www.instagram.com/_vocabuilder/?igsh=ZjV3NWJqcmswYjRo"><i class="fa fa-instagram"></i></a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2024 Vocabuilder. Todos los derechos reservados.</p>
+        <p><a href="#">Política de Privacidad</a> | <a href="#">Términos de Servicio</a></p>
+      </div>
+    </div>
+  </footer>
+
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script>
+        document.addEventListener('DOMContentLoaded', function () {
+        const footer = document.querySelector('.site-footer');
+        const observer = new IntersectionObserver(entries => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              footer.classList.add('visible');
+            } else {
+              footer.classList.remove('visible');
+            }
+          });
+        }, { threshold: 0.1 });
+      
+        observer.observe(footer);
+    });
         var swiper = new Swiper(".mySwiper", {
             effect: "coverflow",
             grabCursor: true,
