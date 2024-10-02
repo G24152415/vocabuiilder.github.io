@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"> <!-- Define la codificación de caracteres para mostrar correctamente el texto -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Hace que la página sea responsive en dispositivos móviles -->
+  <link rel="stylesheet" href="styles.css"> <!-- Vincula una hoja de estilos CSS externa para dar formato a la página -->
+  <link rel="icon" href="imagen/logo-removebg-preview.png"> <!-- Establece un icono que aparecerá en la pestaña del navegador -->
+  <link rel="preconnect" href="https://fonts.googleapis.com"> <!-- Preconexión para mejorar la carga de fuentes -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> <!-- Permite la conexión a fuentes de Google de manera segura -->
+  <link href="https://fonts.googleapis.com/css2?family=Coiny&display=swap" rel="stylesheet"> <!-- Vincula la fuente 'Coiny' de Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Bungee+Spice&family=Comfortaa:wght@300..700&display=swap" rel="stylesheet"> <!-- Vincula otras fuentes de Google Fonts -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> <!-- Vincula la biblioteca de iconos Font Awesome -->
+  <title>VOCABUILDER</title> <!-- Título que se mostrará en la pestaña del navegador -->
+</head>
+<body>
+  <header class="header"> <!-- Encabezado de la página -->
+    <div class="logo"> <!-- Sección del logo -->
+      <img src="imagen/logo-removebg-preview.png" alt="logo de la pagina VOCABUILDER"> <!-- Imagen del logo con texto alternativo -->
+      <p class="logo">VOCABUILDER</p> <!-- Nombre del sitio -->
+    </div>
+    <nav> <!-- Navegación principal -->
+      <ul class="nav-links"> <!-- Lista de enlaces de navegación -->
+        <li><a href="formularios/formularios.html">Formularios</a></li> <!-- Enlace a la sección de formularios -->
+        <li><a href="MenuJuegos/index.html">Juegos</a></li> <!-- Enlace a la sección de juegos -->
+        <li><a href="seccion_videos/Videos.html">Videos</a></li> <!-- Enlace a la sección de videos -->
+      </ul>
+    </nav>
+    <a href="SobreNosotros/sobrenosotros.html" class="btn"><button>Sobre Nosotros</button></a> <!-- Botón para la sección "Sobre Nosotros" -->
+  </header>
+  
+  <div class="carousel"> <!-- Carrusel de imágenes -->
+    <div class="carousel-images"> <!-- Contenedor de las imágenes del carrusel -->
+      <div class="carousel-slide"> <!-- Primer slide del carrusel -->
+        <img src="imagen/baner1.jpeg" alt="Slide 1"> <!-- Imagen del primer slide -->
+        <div class="carousel-text"> <!-- Texto sobre la imagen -->
+          <h2>Juegos:</h2> <!-- Título del slide -->
+          <p>Sumérgete en la diversión mientras mejoras tus habilidades gramaticales con una variedad de juegos interactivos diseñados para desafiar y entretener.</p> <!-- Descripción del slide -->
+          <a href="MenuJuegos/index.html" class="btn_card">Ver más</a> <!-- Enlace para ver más sobre juegos -->
+        </div>
+      </div>
+      <div class="carousel-slide"> <!-- Segundo slide del carrusel -->
+        <img src="imagen/baner2.jpeg" alt="Slide 2"> <!-- Imagen del segundo slide -->
+        <div class="carousel-text"> <!-- Texto sobre la imagen -->
+          <h2>Videos educativos:</h2> <!-- Título del slide -->
+          <p>Explora nuestro catálogo de videos educativos diseñados para explicar conceptos de manera clara y visual.</p> <!-- Descripción del slide -->
+          <a href="seccion_videos/Videos.html" class="btn_card">Ver más</a> <!-- Enlace para ver más sobre videos -->
+        </div>
+      </div>
+      <div class="carousel-slide"> <!-- Tercer slide del carrusel -->
+        <img src="imagen/baner3.jpeg" alt="Slide 3"> <!-- Imagen del tercer slide -->
+        <div class="carousel-text"> <!-- Texto sobre la imagen -->
+          <h2>Formularios:</h2> <!-- Título del slide -->
+          <p>Los formularios te pueden ayudar a medir y analizar el progreso de los estudiantes en aspectos claves del idioma, como la gramática, la ortografía y la comprensión lectora.</p> <!-- Descripción del slide -->
+          <a href="formularios/formularios.html" class="btn_card">Ver más</a> <!-- Enlace para ver más sobre formularios -->
+        </div>
+      </div>
+    </div>
+    <button class="carousel-prev">&#10094;</button> <!-- Botón para ir al slide anterior -->
+    <button class="carousel-next">&#10095;</button> <!-- Botón para ir al siguiente slide -->
+  </div>  
+  
+  <section class="cuerpo"> <!-- Sección principal del cuerpo de la página -->
+    <section class="game-section"> <!-- Sección del juego -->
+      <h2>Relaciona cada palabra con lo que representa. ¡Juega y aprende fácilmente!</h2> <!-- Título del juego -->
+      <div class="game-container"> <!-- Contenedor del juego -->
+        <div class="drag-items"> <!-- Elementos arrastrables -->
+          <div class="drag-item" draggable="true" id="item2">Verbo</div> <!-- Elemento arrastrable: "Verbo" -->
+          <div class="drag-item" draggable="true" id="item3">Adjetivo</div> <!-- Elemento arrastrable: "Adjetivo" -->
+          <div class="drag-item" draggable="true" id="item1">Sustantivo</div> <!-- Elemento arrastrable: "Sustantivo" -->
+        </div>
+        <div class="drop-zones"> <!-- Zonas donde se pueden soltar los elementos -->
+          <div class="drop-zone" id="zone1">Personas</div> <!-- Zona de soltado: "Personas" -->
+          <div class="drop-zone" id="zone2">Acciones</div> <!-- Zona de soltado: "Acciones" -->
+          <div class="drop-zone" id="zone3">Descripciones</div> <!-- Zona de soltado: "Descripciones" -->
+        </div>
+      </div>
+      <div class="game-feedback" id="feedback"></div> <!-- Área para mostrar la retroalimentación del juego -->
+    </section>
+
+    <section class="texto-aparte"> <!-- Sección de texto adicional -->
+      <h2>VOCABUILDER</h2> <!-- Título de la sección -->
+      <p>Bienvenido a Vocabuilder, tu plataforma educativa para aprender de forma divertida y efectiva. Aquí, queremos que el aprendizaje de la gramática sea accesible para todos, desde niños hasta adultos. Creemos que no tiene que ser aburrido ni complicado, por eso ofrecemos muchas herramientas interactivas, juegos y videos educativos. Nuestro objetivo es ayudarte a aprender a través de la práctica constante y la repetición, haciendo que los conceptos gramaticales sean fáciles de entender. En Vocabuilder encontrarás todo lo que necesitas para mejorar tu dominio del lenguaje. ¡Empieza hoy y disfruta aprendiendo con nosotros!</p> <!-- Descripción de la plataforma -->
+    </section>
+
+    <!-- Footer -->
+    <footer class="site-footer"> <!-- Pie de página -->
+      <div class="container"> <!-- Contenedor del pie de página -->
+        <div class="footer-top"> <!-- Parte superior del pie de página -->
+          <div class="footer-logo"> <!-- Logo del pie de página -->
+            <a href="#">Vocabuilder</a> <!-- Enlace al logo -->
+          </div>
+          <div class="footer-links"> <!-- Enlaces del pie de página -->
+            <ul>
+              <li><a href="#">vocabuilder03@gmail.com</a></li> <!-- Enlace al correo electrónico -->
+              <li><a href="SobreNosotros/sobrenosotros.html">Sobre Nosotros</a></li> <!-- Enlace a la sección "Sobre Nosotros" -->
+              <li><a href="https://www.instagram.com/_vocabuilder/?igsh=ZjV3NWJqcmswYjRo"><i class="fa fa-instagram"></i></a></li> <!-- Enlace a Instagram con un icono -->
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom"> <!-- Parte inferior del pie de página -->
+          <p>&copy; 2024 Vocabuilder. Todos los derechos reservados.</p> <!-- Derechos de autor -->
+          <p><a href="#">Política de Privacidad</a> | <a href="#">Términos de Servicio</a></p> <!-- Enlaces a la política de privacidad y términos de servicio -->
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', function () { // Espera a que el contenido de la página esté completamente cargado
+        const footer = document.querySelector('.site-footer'); // Selecciona el pie de página
+        const observer = new IntersectionObserver(entries => { // Crea un observador para detectar cuando el pie de página entra o sale de la vista
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              footer.classList.add('visible'); // Añade clase 'visible' si el pie de página está en vista
+            } else {
+              footer.classList.remove('visible'); // Quita la clase 'visible' si no está en vista
+            }
+          });
+        }, { threshold: 0.1 }); // Configura el umbral de visibilidad al 10%
+      
+        observer.observe(footer); // Comienza a observar el pie de página
+
+        // Código del juego de relacionar
+        const dragItems = document.querySelectorAll('.drag-item'); // Selecciona todos los elementos arrastrables
+        const dropZones = document.querySelectorAll('.drop-zone'); // Selecciona todas las zonas de soltado
+        const feedback = document.getElementById('feedback'); // Selecciona el área de retroalimentación
+
+        dragItems.forEach(item => { // Para cada elemento arrastrable
+          item.addEventListener('dragstart', (e) => { // Escucha el evento de inicio de arrastre
+            e.dataTransfer.setData('text/plain', e.target.id); // Guarda el ID del elemento arrastrado
+            setTimeout(() => { // Espera un corto tiempo
+              e.target.classList.add('dragging'); // Añade clase 'dragging' al elemento arrastrado
+            }, 0);
+          });
+
+          item.addEventListener('dragend', (e) => { // Escucha el evento de fin de arrastre
+            e.target.classList.remove('dragging'); // Quita la clase 'dragging' del elemento
+          });
+        });
+
+        dropZones.forEach(zone => { // Para cada zona de soltado
+          zone.addEventListener('dragover', (e) => { // Escucha el evento de arrastre sobre la zona
+            e.preventDefault(); // Previene el comportamiento por defecto
+            e.target.classList.add('hovered'); // Añade clase 'hovered' a la zona
+          });
+
+          zone.addEventListener('dragleave', (e) => { // Escucha el evento de salida del arrastre
+            e.target.classList.remove('hovered'); // Quita la clase 'hovered' de la zona
+          });
+
+          zone.addEventListener('drop', (e) => { // Escucha el evento de soltar
+            e.preventDefault(); // Previene el comportamiento por defecto
+            const itemId = e.dataTransfer.getData('text/plain'); // Obtiene el ID del elemento arrastrado
+            const item = document.getElementById(itemId); // Selecciona el elemento arrastrado
+            const correctZoneId = itemId.replace('item', 'zone'); // Determina la zona correcta para el elemento
+
+            if (e.target.id === correctZoneId) { // Comprueba si se ha soltado en la zona correcta
+              e.target.appendChild(item); // Añade el elemento a la zona
+              feedback.textContent = '¡Correcto!'; // Muestra mensaje de éxito
+              feedback.style.color = 'green'; // Cambia el color del texto a verde
+            } else {
+              feedback.textContent = 'Intenta de nuevo.'; // Muestra mensaje de error
+              feedback.style.color = 'red'; // Cambia el color del texto a rojo
+            }
+
+            e.target.classList.remove('hovered'); // Quita la clase 'hovered' de la zona
+          });
+        });
+      });
+
+      document.addEventListener('DOMContentLoaded', () => { // Espera a que el contenido de la página esté completamente cargado
+        const slides = document.querySelector('.carousel-images'); // Selecciona el contenedor de imágenes del carrusel
+        const totalSlides = document.querySelectorAll('.carousel-slide').length; // Cuenta el número total de slides
+        let index = 0; // Inicializa el índice del slide actual
+
+        function showSlide(index) { // Función para mostrar un slide específico
+          slides.style.transform = `translateX(-${index * 100}%)`; // Desplaza las imágenes para mostrar el slide correspondiente
+        }
+
+        function nextSlide() { // Función para mostrar el siguiente slide
+          index = (index + 1) % totalSlides; // Incrementa el índice y lo envuelve si excede el total
+          showSlide(index); // Muestra el siguiente slide
+        }
+
+        function prevSlide() { // Función para mostrar el slide anterior
+          index = (index - 1 + totalSlides) % totalSlides; // Decrementa el índice y lo envuelve si es negativo
+          showSlide(index); // Muestra el slide anterior
+        }
+
+        // Cambia cada 10 segundos (10000 milisegundos)
+        setInterval(nextSlide, 10000); // Cambia automáticamente al siguiente slide cada 10 segundos
+
+        showSlide(index); // Muestra la primera diapositiva
+
+        document.querySelector('.carousel-next').addEventListener('click', nextSlide); // Añade evento para ir al siguiente slide al botón
+        document.querySelector('.carousel-prev').addEventListener('click', prevSlide); // Añade evento para ir al slide anterior al botón
+      });
+    </script>
+</body>
+</html>
