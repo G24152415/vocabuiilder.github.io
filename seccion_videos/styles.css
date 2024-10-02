@@ -150,7 +150,7 @@ body {
 }
 
 /* Estilos de los Elementos */
-.card h2 {
+.card h2,.logo {
     font-family: "Coiny", system-ui;
     font-style: normal;
     font-size: 1.5rem; /* Ajusta el tamaño de fuente del título */
